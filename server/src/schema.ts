@@ -22,6 +22,15 @@ export const DateTime = asNexusMethod(DateTimeResolver, 'date')
 const Query = objectType({
   name: 'Query',
   definition(t) {
+    //---testing for connecting
+    t.list.field('users', {
+      type: 'User',
+      resolve: (_parent, args, ctx) => {
+        return ctx.prisma.user.findMany()
+      },
+    })
+    //---
+
     t.nonNull.list.nonNull.field('allUsers', {
       type: 'User',
       resolve: (_parent, _args, context: Context) => {
@@ -66,11 +75,11 @@ const Query = objectType({
       resolve: (_parent, args, context: Context) => {
         const or = args.searchString
           ? {
-            OR: [
-              { title: { contains: args.searchString } },
-              { content: { contains: args.searchString } },
-            ],
-          }
+              OR: [
+                { title: { contains: args.searchString } },
+                { content: { contains: args.searchString } },
+              ],
+            }
           : {}
 
         return context.prisma.post.findMany({
