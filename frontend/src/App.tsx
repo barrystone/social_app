@@ -1,8 +1,10 @@
 import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
+import Landing from './screens/Landing';
 import Users from './components/Users';
 
 const client = new ApolloClient({
@@ -12,10 +14,22 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <div>
+    <>
       <h1>App testing...</h1>
-      <Users />
-    </div>
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <Landing />
+          </Route>
+        </Switch>
+
+        <Switch>
+          <Route path="/users">
+            <Users />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
