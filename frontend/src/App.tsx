@@ -11,7 +11,7 @@ import { setContext } from 'apollo-link-context';
 // import './App.css';
 import './assets/css/main.css';
 
-import Landing from './screens/Landing';
+import Landing from './pages/Landing';
 import Users from './components/Users';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
