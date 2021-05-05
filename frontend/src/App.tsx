@@ -40,7 +40,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <>
-        {/* <h1>App testing...</h1> */}
         <Router>
           <Switch>
             <Route path="/" exact>

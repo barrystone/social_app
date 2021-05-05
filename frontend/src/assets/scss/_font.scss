@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+@mixin kalamFont-light {
+  font-family: 'Kalam', cursive;
+  font-weight: 300;
+}
+
+@mixin kalamFont-regular {
+  font-family: 'Kalam', cursive;
+  font-weight: 400;
+}
+
+@mixin kalamFont-bold {
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+}
