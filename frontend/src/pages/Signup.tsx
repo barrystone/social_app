@@ -2,7 +2,9 @@ import React from 'react';
 import { gql, useMutation } from '@apollo/client';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
+import SocialAppLogo from '../assets/img/social_app-logo.png';
 
 const SIGNUP_MUTATION = gql`
   mutation signup($name: String, $email: String!, $password: String!) {
@@ -49,38 +51,84 @@ const Signup = () => {
   });
 
   return (
-    <div>
-      <h1>Sign up</h1>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={async (value, { setSubmitting }) => {
-          setSubmitting(true);
-          const response = await signup({
-            variables: value
-          });
+    <div className="signup-wrapper">
+      <div className="signup">
+        <img src={SocialAppLogo} alt="logo" className="signup-logo" />
+        <h3>Sign up</h3>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={async (value, { setSubmitting }) => {
+            setSubmitting(true);
+            const response = await signup({
+              variables: value
+            });
 
-          localStorage.setItem('social_app-token', response.data.signup.token);
-          setSubmitting(false);
-          history.push('/users');
-        }}
-      >
-        <Form>
-          <Field name="email" type="text" placeholder="Email" />
-          <ErrorMessage name="email" component={'div'} />
-          <Field name="name" type="text" placeholder="Name" />
-          <ErrorMessage name="name" component={'div'} />
-          <Field name="password" type="password" placeholder="Password" />
-          <ErrorMessage name="password" component={'div'} />
-          <Field
-            name="confirmPassword"
-            type="password"
-            placeholder="Confirm Password"
-          />
-          <ErrorMessage name="confirmPassword" component={'div'} />
-          <button type="submit">Sign up</button>
-        </Form>
-      </Formik>
+            localStorage.setItem(
+              'social_app-token',
+              response.data.signup.token
+            );
+            setSubmitting(false);
+            history.push('/users');
+          }}
+        >
+          <Form className="authentication-form">
+            <Field
+              name="email"
+              type="text"
+              placeholder="Email"
+              className="authentication-form__field"
+            />
+            <ErrorMessage
+              name="email"
+              component={'div'}
+              className="authentication-form__error"
+            />
+            <Field
+              name="name"
+              type="text"
+              placeholder="Name"
+              className="authentication-form__field"
+            />
+            <ErrorMessage
+              name="name"
+              component={'div'}
+              className="authentication-form__error"
+            />
+            <Field
+              name="password"
+              type="password"
+              placeholder="Password"
+              className="authentication-form__field"
+            />
+            <ErrorMessage
+              name="password"
+              component={'div'}
+              className="authentication-form__error"
+            />
+            <Field
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              className="authentication-form__field"
+            />
+            <ErrorMessage
+              name="confirmPassword"
+              component={'div'}
+              className="authentication-form__error"
+            />
+            <button type="submit" className="authentication-form__button">
+              Sign up
+            </button>
+          </Form>
+        </Formik>
+        <div className="signup-login">
+          <h4>Alredy have an account ?</h4>
+          <Link to="/login" className="signup-login__button">
+            Login
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

@@ -8,7 +8,8 @@ import {
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { setContext } from 'apollo-link-context';
 
-import './App.css';
+// import './App.css';
+import './assets/css/main.css';
 
 import Landing from './screens/Landing';
 import Users from './components/Users';
@@ -39,7 +40,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <>
-        <h1>App testing...</h1>
+        {/* <h1>App testing...</h1> */}
         <Router>
           <Switch>
             <Route path="/" exact>

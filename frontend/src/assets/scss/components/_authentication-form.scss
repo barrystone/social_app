@@ -1,0 +1,43 @@
+.authentication-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  &__field {
+    //   color: rgba(38, 50, 56);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-color: $color-primary;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-bottom: 27px;
+  }
+
+  &__error {
+    //   margin-top: -px;
+    //   padding-top: 0px;
+    font-weight: 600;
+    transform: translateY(-50%);
+  }
+
+  &__button {
+    //   width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    outline: none;
+
+    width: 50%;
+    margin: 15px auto;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: $color-primary;
+    color: $color-white;
+    border: 1px solid $color-white;
+    border-radius: 30px;
+  }
+}

@@ -1,0 +1,33 @@
+.signup {
+  &-wrapper {
+    background-color: $color-white;
+    width: 50vw;
+    margin: 5em auto;
+  }
+
+  &-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  h3 {
+    color: $color-black;
+    font-weight: bold;
+    font-size: 23px;
+    text-align: center;
+  }
+  &-login {
+    h4 {
+    }
+    &__button {
+      color: $color-primary;
+      text-decoration: none;
+      &:hover {
+        color: $color-primary-dark;
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+.authentication-form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.authentication-form__field {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-color: #6eaa4d;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 27px;
+}
+
+.authentication-form__error {
+  font-weight: 600;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.authentication-form__button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  outline: none;
+  width: 50%;
+  margin: 15px auto;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #6eaa4d;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 30px;
+}
+
+.login-wrapper {
+  background-color: #fff;
+  width: 50vw;
+  margin: 5em auto;
+}
+
+.login-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.login h3 {
+  color: #000;
+  font-weight: bold;
+  font-size: 23px;
+  text-align: center;
+}
+
+.login-register__button {
+  color: #6eaa4d;
+  text-decoration: none;
+}
+
+.login-register__button:hover {
+  color: #4c7037;
+  text-decoration: underline;
+}
+
+.signup-wrapper {
+  background-color: #fff;
+  width: 50vw;
+  margin: 5em auto;
+}
+
+.signup-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.signup h3 {
+  color: #000;
+  font-weight: bold;
+  font-size: 23px;
+  text-align: center;
+}
+
+.signup-login__button {
+  color: #6eaa4d;
+  text-decoration: none;
+}
+
+.signup-login__button:hover {
+  color: #4c7037;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=main.css.map */
