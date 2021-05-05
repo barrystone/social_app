@@ -22,15 +22,6 @@ export const DateTime = asNexusMethod(DateTimeResolver, 'date')
 const Query = objectType({
   name: 'Query',
   definition(t) {
-    //---testing for connecting
-    t.list.field('users', {
-      type: 'User',
-      resolve: (_parent, args, ctx) => {
-        return ctx.prisma.user.findMany()
-      },
-    })
-    //---
-
     t.nonNull.list.nonNull.field('allUsers', {
       type: 'User',
       resolve: (_parent, _args, context: Context) => {

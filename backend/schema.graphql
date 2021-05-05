@@ -47,7 +47,6 @@ type Query {
   feed(orderBy: PostOrderByUpdatedAtInput, searchString: String, skip: Int, take: Int): [Post!]!
   me: User
   postById(id: Int): Post
-  users: [User]
 }
 
 enum SortOrder {

@@ -14,6 +14,7 @@ import Landing from './screens/Landing';
 import Users from './components/Users';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import IsAuthenticated from './components/IsAuthenticated';
 
 // do this instead of easy apollo client, reason is in necessary for set up header
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' });
@@ -45,10 +46,6 @@ function App() {
               <Landing />
             </Route>
 
-            <Route path="/users">
-              <Users />
-            </Route>
-
             <Route path="/signup">
               <Signup />
             </Route>
@@ -56,6 +53,12 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
+
+            <IsAuthenticated>
+              <Route path="/users">
+                <Users />
+              </Route>
+            </IsAuthenticated>
           </Switch>
         </Router>
       </>
