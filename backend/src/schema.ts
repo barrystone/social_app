@@ -13,6 +13,8 @@ import Query from './types/Query'
 import Mutation from './types/Mutation'
 import User from './types/User'
 import Post from './types/Post'
+import Story from './types/Story'
+import Profile from './types/Profile'
 
 export const DateTime = asNexusMethod(DateTimeResolver, 'date')
 
@@ -65,8 +67,10 @@ const schemaWithoutPermissions = makeSchema({
   types: [
     Query,
     Mutation,
-    Post,
     User,
+    Post,
+    Story,
+    Profile,
     AuthPayload,
     UserUniqueInput,
     UserCreateInput,

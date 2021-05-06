@@ -17,6 +17,26 @@ const User = objectType({
           .posts()
       },
     })
+    t.nonNull.list.nonNull.field('stories', {
+      type: 'Story',
+      resolve: (parent, _, context: Context) => {
+        return context.prisma.user
+          .findUnique({
+            where: { id: parent.id || undefined },
+          })
+          .stories()
+      },
+    })
+    t.nonNull.field('profile', {
+      type: 'Profile',
+      resolve: (parent, _, context: Context) => {
+        return context.prisma.user
+          .findUnique({
+            where: { id: parent.id || undefined },
+          })
+          .profile()
+      },
+    })
   },
 })
 

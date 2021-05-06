@@ -75,7 +75,21 @@ export interface NexusGenObjects {
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     viewCount: number; // Int!
   }
+  Profile: { // root type
+    avatar?: string | null; // String
+    bio?: string | null; // String
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: number; // Int!
+    location?: string | null; // String
+    userId?: number | null; // Int
+    website?: string | null; // String
+  }
   Query: {};
+  Story: { // root type
+    content?: string | null; // String
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: number; // Int!
+  }
   User: { // root type
     email: string; // String!
     id: number; // Int!
@@ -116,6 +130,16 @@ export interface NexusGenFieldTypes {
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     viewCount: number; // Int!
   }
+  Profile: { // field return type
+    avatar: string | null; // String
+    bio: string | null; // String
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: number; // Int!
+    location: string | null; // String
+    user: NexusGenRootTypes['User'] | null; // User
+    userId: number | null; // Int
+    website: string | null; // String
+  }
   Query: { // field return type
     allUsers: NexusGenRootTypes['User'][]; // [User!]!
     draftsByUser: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
@@ -123,11 +147,19 @@ export interface NexusGenFieldTypes {
     me: NexusGenRootTypes['User'] | null; // User
     postById: NexusGenRootTypes['Post'] | null; // Post
   }
+  Story: { // field return type
+    author: NexusGenRootTypes['User'] | null; // User
+    content: string | null; // String
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: number; // Int!
+  }
   User: { // field return type
     email: string; // String!
     id: number; // Int!
     name: string | null; // String
     posts: NexusGenRootTypes['Post'][]; // [Post!]!
+    profile: NexusGenRootTypes['Profile']; // Profile!
+    stories: NexusGenRootTypes['Story'][]; // [Story!]!
   }
 }
 
@@ -154,6 +186,16 @@ export interface NexusGenFieldTypeNames {
     updatedAt: 'DateTime'
     viewCount: 'Int'
   }
+  Profile: { // field return type name
+    avatar: 'String'
+    bio: 'String'
+    createdAt: 'DateTime'
+    id: 'Int'
+    location: 'String'
+    user: 'User'
+    userId: 'Int'
+    website: 'String'
+  }
   Query: { // field return type name
     allUsers: 'User'
     draftsByUser: 'Post'
@@ -161,11 +203,19 @@ export interface NexusGenFieldTypeNames {
     me: 'User'
     postById: 'Post'
   }
+  Story: { // field return type name
+    author: 'User'
+    content: 'String'
+    createdAt: 'DateTime'
+    id: 'Int'
+  }
   User: { // field return type name
     email: 'String'
     id: 'Int'
     name: 'String'
     posts: 'Post'
+    profile: 'Profile'
+    stories: 'Story'
   }
 }
 
