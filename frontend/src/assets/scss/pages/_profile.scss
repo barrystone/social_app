@@ -1,0 +1,18 @@
+.profile {
+  &__button {
+    //   width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    outline: none;
+
+    width: 200px;
+    margin: 15px auto;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: $color-primary;
+    color: $color-white;
+    border: 1px solid $color-white;
+    border-radius: 30px;
+  }
+}
