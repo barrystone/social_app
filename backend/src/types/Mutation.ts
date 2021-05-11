@@ -56,6 +56,54 @@ const Mutation = objectType({
       },
     })
 
+    t.field('createProfile', {
+      type: 'Profile',
+      args: {
+        id: intArg(),
+        bio: stringArg(),
+        location: stringArg(),
+        website: stringArg(),
+        avatar: stringArg(),
+      },
+      resolve: (_, args, ctx) => {
+        const userId = getUserId(ctx)
+        if (!userId) throw new Error('Could not authenticate user.')
+        return ctx.prisma.profile.create({
+          data: {
+            ...(args as any), // Temporary solution for typescript problem
+            user: {
+              connect: {
+                id: Number(userId),
+              },
+            },
+          },
+        }) as any // Temporary solution for typescript problem
+      },
+    })
+
+    t.field('updateProfile', {
+      type: 'Profile',
+      args: {
+        id: intArg(),
+        bio: stringArg(),
+        location: stringArg(),
+        website: stringArg(),
+        avatar: stringArg(),
+      },
+      resolve: (_, { id, ...args }, ctx) => {
+        const userId = getUserId(ctx)
+        if (!userId) throw new Error('Could not authenticate user.')
+        return ctx.prisma.profile.update({
+          data: {
+            ...args,
+          },
+          where: {
+            id: Number(id),
+          },
+        }) as any // Temporary solution for typescript problem
+      },
+    })
+
     t.field('createDraft', {
       type: 'Post',
       args: {

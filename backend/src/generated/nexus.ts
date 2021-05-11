@@ -114,11 +114,13 @@ export interface NexusGenFieldTypes {
   }
   Mutation: { // field return type
     createDraft: NexusGenRootTypes['Post'] | null; // Post
+    createProfile: NexusGenRootTypes['Profile'] | null; // Profile
     deletePost: NexusGenRootTypes['Post'] | null; // Post
     incrementPostViewCount: NexusGenRootTypes['Post'] | null; // Post
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     signup: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     togglePublishPost: NexusGenRootTypes['Post'] | null; // Post
+    updateProfile: NexusGenRootTypes['Profile'] | null; // Profile
   }
   Post: { // field return type
     author: NexusGenRootTypes['User'] | null; // User
@@ -170,11 +172,13 @@ export interface NexusGenFieldTypeNames {
   }
   Mutation: { // field return type name
     createDraft: 'Post'
+    createProfile: 'Profile'
     deletePost: 'Post'
     incrementPostViewCount: 'Post'
     login: 'AuthPayload'
     signup: 'AuthPayload'
     togglePublishPost: 'Post'
+    updateProfile: 'Profile'
   }
   Post: { // field return type name
     author: 'User'
@@ -224,6 +228,13 @@ export interface NexusGenArgTypes {
     createDraft: { // args
       data: NexusGenInputs['PostCreateInput']; // PostCreateInput!
     }
+    createProfile: { // args
+      avatar?: string | null; // String
+      bio?: string | null; // String
+      id?: number | null; // Int
+      location?: string | null; // String
+      website?: string | null; // String
+    }
     deletePost: { // args
       id: number; // Int!
     }
@@ -241,6 +252,13 @@ export interface NexusGenArgTypes {
     }
     togglePublishPost: { // args
       id: number; // Int!
+    }
+    updateProfile: { // args
+      avatar?: string | null; // String
+      bio?: string | null; // String
+      id?: number | null; // Int
+      location?: string | null; // String
+      website?: string | null; // String
     }
   }
   Query: {
