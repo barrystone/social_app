@@ -47,14 +47,17 @@ const Profile = () => {
                 <span>{data.me.name}</span>
               </div>
             </div>
+
             <div className="profile__avatar">
               <i className="fa fa-user fa-5x" aria-hidden="true"></i>
             </div>
+
+            <h3>{data.me.name}</h3>
+
             <div className="profile__changeProfile">
               {data.me.profile ? <UpdateProfile /> : <CreateProfile />}
             </div>
 
-            <h3>{data.me.name}</h3>
             <p>{data.me.profile.bio}</p>
 
             <div className="profile__website">
