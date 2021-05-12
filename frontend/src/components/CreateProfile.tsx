@@ -53,7 +53,7 @@ const CreateProfile = () => {
   return (
     <div className="createProfile-wrapper">
       <div className="createProfile">
-        <button onClick={openModal} className="profile__button">
+        <button onClick={openModal} className="profile-button">
           Create Profile
         </button>
         <Modal

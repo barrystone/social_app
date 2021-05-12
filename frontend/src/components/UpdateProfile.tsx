@@ -62,7 +62,7 @@ const UpdateProfile = () => {
   return (
     <div className="updateProfile-wrapper">
       <div className="updateProfile">
-        <button onClick={openModal} className="profile__button">
+        <button onClick={openModal} className="profile-button">
           Update Profile
         </button>
         <Modal
