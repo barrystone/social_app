@@ -4,6 +4,7 @@ import CreateProfile from '../components/CreateProfile';
 import UpdateProfile from '../components/UpdateProfile';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import LeftNav from '../components/LeftNav';
 
 export const ME_QUERY = gql`
   {
@@ -30,7 +31,9 @@ const Profile = () => {
   return (
     <>
       <div className="main-layout">
-        <div className="left">left nav</div>
+        <div className="left">
+          <LeftNav />
+        </div>
         <div className="profile-wrapper">
           <div className="profile">
             <div className="profile__top">

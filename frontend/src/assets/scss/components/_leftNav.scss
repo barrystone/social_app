@@ -1,0 +1,92 @@
+.leftNav {
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    .logo {
+      height: 40px;
+    }
+
+    h2 {
+      font-size: 22px;
+      @media only screen and (max-width: 1200px) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      font-size: 22px;
+      padding: 10px;
+      border-radius: 25px;
+      width: 70%;
+
+      &:hover {
+        /* color: ${(props) => props.theme.primary}; */
+        background: $color-primary-light-3;
+        @media only screen and (max-width: 1200px) {
+          /* color: ${(props) => props.theme.primary}; */
+          background: transparent;
+        }
+      }
+
+      .title {
+        margin-left: 15px;
+        @media only screen and (max-width: 1250px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-btn {
+    background-color: $color-primary;
+    border: 0;
+    color: $color-white;
+
+    cursor: pointer;
+    border-radius: 50px;
+
+    margin: 20px 0 20px 10px;
+
+    span {
+      display: block;
+      padding: 8px 20px;
+      transition: all 0.1s linear;
+      font-size: 18px;
+      font-weight: 700;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    &:hover {
+      background: $color-primary-dark;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active span {
+      background-color: rgba(0, 0, 0, 0.2);
+      outline: 0;
+    }
+  }
+
+  //   .featherIcon {
+  //     @media only screen and (min-width: 1250px) {
+  //       display: none;
+  //     }
+  //   }
+
+  //   .icon-links {
+  //     display: grid;
+  //     @media only screen and (max-width: 1200px) {
+  //       grid-template-columns: 0.5fr;
+  //       display: none;
+  //     }
+  //   }
+
+  //   button button span button:disabled {
+  //     opacity: 0.5;
+  //   }
+}

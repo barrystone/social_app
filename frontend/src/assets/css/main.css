@@ -184,6 +184,87 @@ textarea:focus {
   border-radius: 30px;
 }
 
+.leftNav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.leftNav a .logo {
+  height: 40px;
+}
+
+.leftNav a h2 {
+  font-size: 22px;
+  font-size: 22px;
+  padding: 10px;
+  border-radius: 25px;
+  width: 70%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .leftNav a h2 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.leftNav a h2:hover {
+  /* color: ${(props) => props.theme.primary}; */
+  background: #def0d2;
+}
+
+@media only screen and (max-width: 1200px) {
+  .leftNav a h2:hover {
+    /* color: ${(props) => props.theme.primary}; */
+    background: transparent;
+  }
+}
+
+.leftNav a h2 .title {
+  margin-left: 15px;
+}
+
+@media only screen and (max-width: 1250px) {
+  .leftNav a h2 .title {
+    display: none;
+  }
+}
+
+.leftNav-btn {
+  background-color: #6eaa4d;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50px;
+  margin: 20px 0 20px 10px;
+}
+
+.leftNav-btn span {
+  display: block;
+  padding: 8px 20px;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.leftNav-btn span:focus {
+  outline: 0;
+}
+
+.leftNav-btn:hover {
+  background: #4c7037;
+}
+
+.leftNav-btn:focus {
+  outline: none;
+}
+
+.leftNav-btn:active span {
+  background-color: rgba(0, 0, 0, 0.2);
+  outline: 0;
+}
+
 .landing {
   display: -webkit-box;
   display: -ms-flexbox;
