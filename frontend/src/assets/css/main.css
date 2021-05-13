@@ -456,7 +456,32 @@ textarea:focus {
   border-bottom: 10px solid #badc58;
 }
 
-.profile-button {
+.profile-uploadImg {
+  display: none;
+}
+
+.profile-uploadImg ~ span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile-uploadImg ~ span i,
+.profile-uploadImg ~ span img {
+  margin: 20px auto;
+  border: 3px #84cc5b inset;
+  padding: 10px;
+}
+
+.profile-uploadImg ~ span i {
+  font-size: 100px;
+}
+
+.profile-uploadImg ~ span img {
+  height: 80px;
+}
+
+.profile-btn {
   padding-top: 10px;
   padding-bottom: 10px;
   cursor: pointer;
@@ -471,11 +496,11 @@ textarea:focus {
   border-radius: 30px;
 }
 
-.profile-button:focus {
+.profile-btn:focus {
   outline: none;
 }
 
-.profile-button:hover {
+.profile-btn:hover {
   background-color: #84cc5b;
   border: 1px solid #6eaa4d;
 }
@@ -513,6 +538,11 @@ textarea:focus {
 .profile__avatar {
   margin: 0;
   margin-left: 20px;
+}
+
+.profile__avatar img {
+  width: 150px;
+  border-radius: '50%';
 }
 
 .profile__avatar i {

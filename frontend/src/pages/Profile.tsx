@@ -49,7 +49,11 @@ const Profile = () => {
             </div>
 
             <div className="profile__avatar">
-              <i className="fa fa-user fa-5x" aria-hidden="true"></i>
+              {data.me.profile.avatar ? (
+                <img src={data.me.profile.avatar} alt="avatar" />
+              ) : (
+                <i className="fa fa-user fa-5x" aria-hidden="true"></i>
+              )}
             </div>
 
             <h3>{data.me.name}</h3>
@@ -73,6 +77,7 @@ const Profile = () => {
                 </p>
               ) : null}
             </div>
+
             <div className="profile__followers">
               <p>13 following</p>
               <p>999 followers</p>

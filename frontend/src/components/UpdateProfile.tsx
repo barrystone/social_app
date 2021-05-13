@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { ME_QUERY } from '../pages/Profile';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
@@ -34,6 +34,10 @@ interface ProfileValues {
 }
 
 const UpdateProfile = () => {
+  const inputFile = useRef(null);
+  const [image, setImage] = useState('');
+  const [imageLoading, setImageLoading] = useState(false);
+
   const { loading, data, error } = useQuery(ME_QUERY);
   const [updateProfile] = useMutation(UPDATE_PROFILE_MUTATION, {
     // Do refetch, when data update will sync to refetch latest updating.
@@ -57,12 +61,34 @@ const UpdateProfile = () => {
     setModalIsOpen(false);
   };
 
+  const uploadImage = async (e: any) => {
+    console.log('e', e);
+    const files = e.target.files;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'social_app');
+    console.log('FormData() after own append');
+    setImageLoading(true);
+    const res = await fetch(
+      process.env.REACT_APP_CLOUDINARY_ENDPOINT as string,
+      {
+        method: 'POST',
+        body: data
+      }
+    );
+    console.log('res await fetch', res);
+    const file = await res.json();
+    console.log('file await res.json()', file);
+    setImage(file.secure_url);
+    setImageLoading(false);
+  };
+
   if (loading) return <h2>Loading......</h2>;
   if (error) return <h3>{error.message}</h3>;
   return (
     <div className="updateProfile-wrapper">
       <div className="updateProfile">
-        <button onClick={openModal} className="profile-button">
+        <button onClick={openModal} className="profile-btn">
           Update Profile
         </button>
         <Modal
@@ -71,13 +97,37 @@ const UpdateProfile = () => {
           contentLabel="Modal"
           style={customModalStyles}
         >
+          <input
+            className="profile-uploadImg"
+            type="file"
+            name="file"
+            placeholder="upload image"
+            ref={inputFile}
+            onChange={uploadImage}
+          />
+          {imageLoading ? (
+            <h3>Loading......</h3>
+          ) : (
+            <>
+              {image ? (
+                <span onClick={() => (inputFile as any).current.click()}>
+                  <img src={image} alt="avatar" />
+                </span>
+              ) : (
+                <span onClick={() => (inputFile as any).current.click()}>
+                  <i className="fa fa-user fa-5x" aria-hidden="true"></i>
+                </span>
+              )}
+            </>
+          )}
+
           <Formik
             initialValues={initialValues}
             // validationSchema={validationSchema}
             onSubmit={async (value, { setSubmitting }) => {
               setSubmitting(true);
               await updateProfile({
-                variables: value
+                variables: { ...value, avatar: image }
               });
 
               setSubmitting(false);

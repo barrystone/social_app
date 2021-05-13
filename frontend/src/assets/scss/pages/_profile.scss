@@ -2,7 +2,26 @@
   padding-left: 20px;
   border-bottom: 10px solid $color-primary-light-1;
 
-  &-button {
+  // UpdateProfile.tsx CreateProfile.tsx component
+  &-uploadImg {
+    display: none;
+  }
+  &-uploadImg ~ span {
+    display: flex;
+    i,
+    img {
+      margin: 20px auto;
+      border: 3px $color-primary-light inset;
+      padding: 10px;
+    }
+    i {
+      font-size: 100px;
+    }
+    img {
+      height: 80px;
+    }
+  }
+  &-btn {
     padding-top: 10px;
     padding-bottom: 10px;
     cursor: pointer;
@@ -26,6 +45,7 @@
       border: 1px solid $color-primary;
     }
   }
+  // ------------
 
   &-wrapper {
     position: relative;
@@ -49,7 +69,6 @@
       span {
         font-family: serif;
         font-size: 20px;
-        // font-weight: 400;
       }
     }
   }
@@ -59,6 +78,8 @@
     margin-left: 20px;
 
     img {
+      width: 150px;
+      border-radius: '50%';
     }
 
     i {
@@ -76,7 +97,6 @@
     display: grid;
     justify-items: end;
     margin-right: 30px;
-    // margin-bottom: 20px;
   }
 
   p {
