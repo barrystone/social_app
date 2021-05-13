@@ -62,12 +62,10 @@ const UpdateProfile = () => {
   };
 
   const uploadImage = async (e: any) => {
-    console.log('e', e);
     const files = e.target.files;
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'social_app');
-    console.log('FormData() after own append');
     setImageLoading(true);
     const res = await fetch(
       process.env.REACT_APP_CLOUDINARY_ENDPOINT as string,
@@ -76,9 +74,7 @@ const UpdateProfile = () => {
         body: data
       }
     );
-    console.log('res await fetch', res);
     const file = await res.json();
-    console.log('file await res.json()', file);
     setImage(file.secure_url);
     setImageLoading(false);
   };
@@ -112,6 +108,10 @@ const UpdateProfile = () => {
               {image ? (
                 <span onClick={() => (inputFile as any).current.click()}>
                   <img src={image} alt="avatar" />
+                </span>
+              ) : data.me.profile.avatar ? (
+                <span onClick={() => (inputFile as any).current.click()}>
+                  <img src={data.me.profile.avatar} alt="avatar" />
                 </span>
               ) : (
                 <span onClick={() => (inputFile as any).current.click()}>

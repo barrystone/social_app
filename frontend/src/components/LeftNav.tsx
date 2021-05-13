@@ -5,7 +5,7 @@ import SocialAppLogo from '../assets/img/social_app-logo.png';
 const LeftNav = () => {
   return (
     <div className="leftNav">
-      <Link to="/users">
+      <Link to="/">
         <img src={SocialAppLogo} alt="logo" className="logo" />
       </Link>
       <Link to="/">
