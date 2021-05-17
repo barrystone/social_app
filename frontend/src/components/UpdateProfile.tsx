@@ -4,6 +4,7 @@ import { ME_QUERY } from '../pages/Profile';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Modal from 'react-modal';
 import { customModalStyles } from '../styles/ModalStyles';
+import Crypto from 'crypto';
 
 const UPDATE_PROFILE_MUTATION = gql`
   mutation updateProfile(
@@ -63,15 +64,34 @@ const UpdateProfile = () => {
 
   const uploadImage = async (e: any) => {
     const files = e.target.files;
-    const data = new FormData();
-    data.append('file', files[0]);
-    data.append('upload_preset', 'social_app');
+    const formData = new FormData();
+    // const upload_preset = 'social_app-unsigned';
+    const public_id = `avatar_${data.me.id}`;
+    const timestamp = Math.round(Number(new Date()) / 1000);
+
+    const signature = Crypto.createHash('sha256')
+      .update(
+        `eager=w_400,h_300,c_pad|w_260,h_200,c_crop&public_id=${public_id}&timestamp=${timestamp}${process.env.REACT_APP_CLOUDINARY_API_SECRET}`
+      )
+      .digest('hex');
+
+    formData.append('file', files[0]);
+    // formData.append('upload_preset', upload_preset);
+    formData.append(
+      'api_key',
+      process.env.REACT_APP_CLOUDINARY_API_KEY as string
+    );
+    formData.append('public_id', public_id);
+    formData.append('eager', 'w_400,h_300,c_pad|w_260,h_200,c_crop');
+    formData.append('timestamp', timestamp.toString());
+    formData.append('signature', signature);
+
     setImageLoading(true);
     const res = await fetch(
       process.env.REACT_APP_CLOUDINARY_ENDPOINT as string,
       {
         method: 'POST',
-        body: data
+        body: formData
       }
     );
     const file = await res.json();

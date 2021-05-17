@@ -23,8 +23,17 @@ export const ME_QUERY = gql`
 `;
 
 const Profile = () => {
+  interface ProfileData {
+    id: any;
+    bio: any;
+    location: any;
+    website: any;
+    avatar: any;
+  }
+
   const { loading, data, error } = useQuery(ME_QUERY);
   const history = useHistory();
+  // data.me.profile as ProfileData;
 
   if (loading) return <h2>Loading......</h2>;
   if (error) return <h3>{error.message}</h3>;
@@ -49,7 +58,7 @@ const Profile = () => {
             </div>
 
             <div className="profile__avatar">
-              {data.me.profile.avatar ? (
+              {data.me.profile && data.me.profile.avatar ? (
                 <img src={data.me.profile.avatar} alt="avatar" />
               ) : (
                 <i className="fa fa-user fa-5x" aria-hidden="true"></i>
@@ -62,10 +71,14 @@ const Profile = () => {
               {data.me.profile ? <UpdateProfile /> : <CreateProfile />}
             </div>
 
-            <p>{data.me.profile.bio}</p>
+            <p>
+              {data.me.profile && data.me.profile.bio
+                ? data.me.profile.bio
+                : ''}
+            </p>
 
             <div className="profile__website">
-              {data.me.profile ? (
+              {data.me.profile && data.me.profile.website ? (
                 <p>
                   <i className="fas fa-link"> </i>{' '}
                   <Link
