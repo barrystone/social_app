@@ -78,9 +78,9 @@ type User {
   email: String!
   id: Int!
   name: String
-  posts: [Post!]!
-  profile: Profile!
-  stories: [Story!]!
+  posts: [Post]
+  profile: Profile
+  stories: [Story]
 }
 
 input UserCreateInput {

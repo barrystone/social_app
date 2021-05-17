@@ -5,9 +5,9 @@ const User = objectType({
   name: 'User',
   definition(t) {
     t.nonNull.int('id')
-    t.string('name')
+    t.nullable.string('name')
     t.nonNull.string('email')
-    t.nonNull.list.nonNull.field('posts', {
+    t.list.field('posts', {
       type: 'Post',
       resolve: (parent, _, context: Context) => {
         return context.prisma.user
@@ -17,7 +17,7 @@ const User = objectType({
           .posts()
       },
     })
-    t.nonNull.list.nonNull.field('stories', {
+    t.list.field('stories', {
       type: 'Story',
       resolve: (parent, _, context: Context) => {
         return context.prisma.user
@@ -27,7 +27,7 @@ const User = objectType({
           .stories() as any // Temporary solution for typescript problem
       },
     })
-    t.nonNull.field('profile', {
+    t.field('profile', {
       type: 'Profile',
       resolve: (parent, _, context: Context) => {
         return context.prisma.user

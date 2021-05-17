@@ -159,9 +159,9 @@ export interface NexusGenFieldTypes {
     email: string; // String!
     id: number; // Int!
     name: string | null; // String
-    posts: NexusGenRootTypes['Post'][]; // [Post!]!
-    profile: NexusGenRootTypes['Profile']; // Profile!
-    stories: NexusGenRootTypes['Story'][]; // [Story!]!
+    posts: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
+    profile: NexusGenRootTypes['Profile'] | null; // Profile
+    stories: Array<NexusGenRootTypes['Story'] | null> | null; // [Story]
   }
 }
 
