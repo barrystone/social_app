@@ -73,7 +73,7 @@ const Mutation = objectType({
             ...(args as any), // Temporary solution for typescript problem
             user: {
               connect: {
-                id: Number(userId),
+                id: userId,
               },
             },
           },
@@ -119,7 +119,7 @@ const Mutation = objectType({
           data: {
             title: args.data.title,
             content: args.data.content,
-            authorId: userId,
+            authorId: userId?.toString(),
           },
         })
       },

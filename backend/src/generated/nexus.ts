@@ -43,7 +43,7 @@ export interface NexusGenInputs {
   }
   UserUniqueInput: { // input type
     email?: string | null; // String
-    id?: number | null; // Int
+    id?: string | null; // String
   }
 }
 
@@ -81,7 +81,7 @@ export interface NexusGenObjects {
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     id: number; // Int!
     location?: string | null; // String
-    userId?: number | null; // Int
+    userId?: string | null; // String
     website?: string | null; // String
   }
   Query: {};
@@ -92,7 +92,7 @@ export interface NexusGenObjects {
   }
   User: { // root type
     email: string; // String!
-    id: number; // Int!
+    id: string; // String!
     name?: string | null; // String
   }
 }
@@ -139,7 +139,7 @@ export interface NexusGenFieldTypes {
     id: number; // Int!
     location: string | null; // String
     user: NexusGenRootTypes['User'] | null; // User
-    userId: number | null; // Int
+    userId: string | null; // String
     website: string | null; // String
   }
   Query: { // field return type
@@ -157,7 +157,7 @@ export interface NexusGenFieldTypes {
   }
   User: { // field return type
     email: string; // String!
-    id: number; // Int!
+    id: string; // String!
     name: string | null; // String
     posts: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
     profile: NexusGenRootTypes['Profile'] | null; // Profile
@@ -197,7 +197,7 @@ export interface NexusGenFieldTypeNames {
     id: 'Int'
     location: 'String'
     user: 'User'
-    userId: 'Int'
+    userId: 'String'
     website: 'String'
   }
   Query: { // field return type name
@@ -215,7 +215,7 @@ export interface NexusGenFieldTypeNames {
   }
   User: { // field return type name
     email: 'String'
-    id: 'Int'
+    id: 'String'
     name: 'String'
     posts: 'Post'
     profile: 'Profile'

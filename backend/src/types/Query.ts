@@ -18,7 +18,7 @@ const Query = objectType({
         const userId = getUserId(context)
         return context.prisma.user.findUnique({
           where: {
-            id: Number(userId),
+            id: userId?.toString(),
           },
         })
       },

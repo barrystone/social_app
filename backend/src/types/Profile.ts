@@ -10,7 +10,7 @@ const Profile = objectType({
     t.string('location')
     t.string('website')
     t.string('avatar')
-    t.int('userId')
+    t.string('userId')
     t.field('user', {
       type: 'User',
       resolve: (parent, _, context: Context) => {

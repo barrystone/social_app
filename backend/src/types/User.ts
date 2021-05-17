@@ -4,7 +4,7 @@ import { Context } from '../context'
 const User = objectType({
   name: 'User',
   definition(t) {
-    t.nonNull.int('id')
+    t.nonNull.string('id')
     t.nullable.string('name')
     t.nonNull.string('email')
     t.list.field('posts', {

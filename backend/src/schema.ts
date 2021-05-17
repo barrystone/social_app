@@ -33,7 +33,7 @@ const PostOrderByUpdatedAtInput = inputObjectType({
 const UserUniqueInput = inputObjectType({
   name: 'UserUniqueInput',
   definition(t) {
-    t.int('id')
+    t.string('id')
     t.string('email')
   },
 })

@@ -50,7 +50,7 @@ type Profile {
   id: Int!
   location: String
   user: User
-  userId: Int
+  userId: String
   website: String
 }
 
@@ -76,7 +76,7 @@ type Story {
 
 type User {
   email: String!
-  id: Int!
+  id: String!
   name: String
   posts: [Post]
   profile: Profile
@@ -91,5 +91,5 @@ input UserCreateInput {
 
 input UserUniqueInput {
   email: String
-  id: Int
+  id: String
 }
