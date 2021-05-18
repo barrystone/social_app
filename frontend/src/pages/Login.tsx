@@ -21,7 +21,7 @@ interface LoginValues {
 
 const Login = () => {
   const history = useHistory();
-  const [login, { data }] = useMutation(LOGIN_MUTATION);
+  const [login] = useMutation(LOGIN_MUTATION);
 
   const initialValues: LoginValues = {
     email: '',

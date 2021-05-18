@@ -23,7 +23,7 @@ interface SignupValues {
 
 const Signup = () => {
   const history = useHistory();
-  const [signup, { data }] = useMutation(SIGNUP_MUTATION);
+  const [signup] = useMutation(SIGNUP_MUTATION);
 
   const initialValues: SignupValues = {
     name: '',

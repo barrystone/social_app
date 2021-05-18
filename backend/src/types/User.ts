@@ -1,6 +1,7 @@
 import { objectType } from 'nexus'
 import { Context } from '../context'
 
+// Because we don't want query can request password, so we don't need to define password here.
 const User = objectType({
   name: 'User',
   definition(t) {

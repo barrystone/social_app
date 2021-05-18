@@ -112,6 +112,7 @@ const UpdateProfile = () => {
           onRequestClose={closeModal}
           contentLabel="Modal"
           style={customModalStyles}
+          appElement={document.getElementById('root') as HTMLElement}
         >
           <input
             className="profile-uploadImg"

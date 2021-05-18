@@ -23,14 +23,6 @@ export const ME_QUERY = gql`
 `;
 
 const Profile = () => {
-  interface ProfileData {
-    id: any;
-    bio: any;
-    location: any;
-    website: any;
-    avatar: any;
-  }
-
   const { loading, data, error } = useQuery(ME_QUERY);
   const history = useHistory();
   // data.me.profile as ProfileData;
