@@ -35,7 +35,7 @@ interface ProfileValues {
 }
 
 const UpdateProfile = () => {
-  const inputFile = useRef(null);
+  const inputFile = useRef<HTMLInputElement | null>(null);
   const [image, setImage] = useState('');
   const [imageLoading, setImageLoading] = useState(false);
 
@@ -62,8 +62,8 @@ const UpdateProfile = () => {
     setModalIsOpen(false);
   };
 
-  const uploadImage = async (e: any) => {
-    const files = e.target.files;
+  const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files as FileList;
     const formData = new FormData();
     // const upload_preset = 'social_app-unsigned';
     const public_id = `avatar_${data.me.id}`;
