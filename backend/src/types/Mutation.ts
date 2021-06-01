@@ -104,6 +104,23 @@ const Mutation = objectType({
       },
     })
 
+    t.field('createStory', {
+      type: 'Story',
+      args: {
+        content: stringArg(),
+      },
+      resolve: (_, { content }, ctx) => {
+        const userId = getUserId(ctx)
+        if (!userId) throw new Error('Could not authenticate user.')
+        return ctx.prisma.story.create({
+          data: {
+            content,
+            author: { connect: { id: userId } },
+          },
+        }) as any // Temporary solution for typescript problem
+      },
+    })
+
     t.field('createDraft', {
       type: 'Post',
       args: {

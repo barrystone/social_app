@@ -15,6 +15,7 @@ scalar DateTime
 type Mutation {
   createDraft(data: PostCreateInput!): Post
   createProfile(avatar: String, bio: String, id: Int, location: String, website: String): Profile
+  createStory(content: String): Story
   deletePost(id: Int!): Post
   incrementPostViewCount(id: Int!): Post
   login(email: String!, password: String!): AuthPayload

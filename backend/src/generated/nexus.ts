@@ -115,6 +115,7 @@ export interface NexusGenFieldTypes {
   Mutation: { // field return type
     createDraft: NexusGenRootTypes['Post'] | null; // Post
     createProfile: NexusGenRootTypes['Profile'] | null; // Profile
+    createStory: NexusGenRootTypes['Story'] | null; // Story
     deletePost: NexusGenRootTypes['Post'] | null; // Post
     incrementPostViewCount: NexusGenRootTypes['Post'] | null; // Post
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
@@ -173,6 +174,7 @@ export interface NexusGenFieldTypeNames {
   Mutation: { // field return type name
     createDraft: 'Post'
     createProfile: 'Profile'
+    createStory: 'Story'
     deletePost: 'Post'
     incrementPostViewCount: 'Post'
     login: 'AuthPayload'
@@ -234,6 +236,9 @@ export interface NexusGenArgTypes {
       id?: number | null; // Int
       location?: string | null; // String
       website?: string | null; // String
+    }
+    createStory: { // args
+      content?: string | null; // String
     }
     deletePost: { // args
       id: number; // Int!
