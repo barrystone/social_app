@@ -21,9 +21,9 @@ textarea {
 
 textarea:focus {
   outline: none;
-  border-color: var(--main-color);
-  -webkit-box-shadow: 0 0 3px var(--main-color);
-          box-shadow: 0 0 3px var(--main-color);
+  border-color: #badc58;
+  -webkit-box-shadow: 0 0 3px #6eaa4d;
+          box-shadow: 0 0 3px #6eaa4d;
 }
 
 .main-layout {
@@ -229,7 +229,7 @@ textarea:focus {
   }
 }
 
-.leftNav-btn {
+.story-btn {
   background-color: #6eaa4d;
   border: 0;
   color: #fff;
@@ -238,7 +238,7 @@ textarea:focus {
   margin: 20px 0 20px 10px;
 }
 
-.leftNav-btn span {
+.story-btn span {
   display: block;
   padding: 8px 20px;
   -webkit-transition: all 0.1s linear;
@@ -247,21 +247,94 @@ textarea:focus {
   font-weight: 700;
 }
 
-.leftNav-btn span:focus {
+.story-btn span:focus {
   outline: 0;
 }
 
-.leftNav-btn:hover {
+.story-btn:hover {
   background: #4c7037;
 }
 
-.leftNav-btn:focus {
+.story-btn:focus {
   outline: none;
 }
 
-.leftNav-btn:active span {
+.story-btn:active span {
   background-color: rgba(0, 0, 0, 0.2);
   outline: 0;
+}
+
+.story-exit {
+  color: #6eaa4d;
+  margin-left: 3px;
+}
+
+.story-exit:hover {
+  color: #4c7037;
+}
+
+.story__model-header {
+  border-bottom: 1px solid #718093;
+  width: 100%;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.story__model-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.story__model-form textarea {
+  border: 1px solid #badc58;
+  font-size: 18px;
+}
+
+.story__model-form textarea:focus {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.story__model-form button {
+  font-size: 14px;
+  width: 20%;
+  margin: 0 10px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+}
+
+.story__model-form button:hover {
+  background-color: #fff;
+  color: #6eaa4d;
+  border: 1px solid #6eaa4d;
+}
+
+.story__model-form button:focus {
+  outline: none;
+}
+
+.story__model-footer {
+  border-bottom: 1px solid #718093;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
 }
 
 .landing {

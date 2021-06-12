@@ -57,13 +57,10 @@ const Story = () => {
           style={customModalStyles}
           appElement={document.getElementById('root') as HTMLElement}
         >
-          <span className="exit" onClick={closeModal}>
-            <i
-              className="fa fa-times"
-              // aria-hidden="true"
-            ></i>
+          <span className="story-exit" onClick={closeModal}>
+            <i className="fa fa-times" aria-hidden="true"></i>
           </span>
-          <div className="header"></div>
+          <div className="story__model-header"></div>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -77,7 +74,7 @@ const Story = () => {
               setModalIsOpen(false);
             }}
           >
-            <Form className="normal-form">
+            <Form className="normal-form story__model-form">
               <Field
                 name="content"
                 type="text"
@@ -91,9 +88,9 @@ const Story = () => {
                 className="normal-form__error"
               />
 
-              <div className="footer"></div>
+              <div className="story__model-footer"></div>
               <button type="submit" className="normal-form__button">
-                <span>Story</span>
+                <span>Storying</span>
               </button>
             </Form>
           </Formik>
