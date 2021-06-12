@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SocialAppLogo from '../assets/img/social_app-logo.png';
+import Story from './Story';
 
 const LeftNav = () => {
   return (
@@ -38,9 +39,10 @@ const LeftNav = () => {
           <span className="title">More</span>
         </h2>
       </Link>
-      <button className="leftNav-btn">
-        <span>Story</span>
-      </button>
+      {/* <button className="leftNav-btn">
+        <span>Story</span> 
+      </button> */}
+      <Story />
     </div>
   );
 };
