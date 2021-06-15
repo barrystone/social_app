@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SocialAppLogo from '../assets/img/social_app-logo.png';
+import Logout from './Logout';
 import Story from './Story';
 
 const LeftNav = () => {
@@ -39,10 +40,8 @@ const LeftNav = () => {
           <span className="title">More</span>
         </h2>
       </Link>
-      {/* <button className="leftNav-btn">
-        <span>Story</span> 
-      </button> */}
       <Story />
+      <Logout />
     </div>
   );
 };
