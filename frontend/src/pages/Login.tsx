@@ -53,7 +53,7 @@ const Login = () => {
 
             localStorage.setItem('social_app-token', response.data.login.token);
             setSubmitting(false);
-            history.push('/users');
+            history.push('/');
           }}
         >
           <Form className="authentication-form">

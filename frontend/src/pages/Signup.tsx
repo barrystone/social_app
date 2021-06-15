@@ -69,7 +69,7 @@ const Signup = () => {
               response.data.signup.token
             );
             setSubmitting(false);
-            history.push('/users');
+            history.push('/');
           }}
         >
           <Form className="authentication-form">
