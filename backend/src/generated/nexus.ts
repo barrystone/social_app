@@ -149,6 +149,8 @@ export interface NexusGenFieldTypes {
     feed: NexusGenRootTypes['Post'][]; // [Post!]!
     me: NexusGenRootTypes['User'] | null; // User
     postById: NexusGenRootTypes['Post'] | null; // Post
+    story: NexusGenRootTypes['Story'] | null; // Story
+    storys: NexusGenRootTypes['Story'] | null; // Story
   }
   Story: { // field return type
     author: NexusGenRootTypes['User'] | null; // User
@@ -208,6 +210,8 @@ export interface NexusGenFieldTypeNames {
     feed: 'Post'
     me: 'User'
     postById: 'Post'
+    story: 'Story'
+    storys: 'Story'
   }
   Story: { // field return type name
     author: 'User'
@@ -277,6 +281,9 @@ export interface NexusGenArgTypes {
       take?: number | null; // Int
     }
     postById: { // args
+      id?: number | null; // Int
+    }
+    story: { // args
       id?: number | null; // Int
     }
   }

@@ -24,6 +24,25 @@ const Query = objectType({
       },
     })
 
+    t.field('storys', {
+      type: 'Story',
+      resolve: (parent, args, ctx) => {
+        return ctx.prisma.story.findMany()
+      },
+    })
+
+    t.nullable.field('story', {
+      type: 'Story',
+      args: {
+        id: intArg(),
+      },
+      resolve: (parent, { id }, ctx) => {
+        return ctx.prisma.story.findUnique({
+          where: { id: Number(id) },
+        })
+      },
+    })
+
     t.nullable.field('postById', {
       type: 'Post',
       args: {
