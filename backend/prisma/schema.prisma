@@ -30,20 +30,20 @@ model Post {
 }
 
 model Profile {
-  id       Int      @id @default(autoincrement())
-  createAt DateTime @default(now())
-  bio      String?
-  location String?
-  website  String?
-  avatar   String?
-  user     User?    @relation(fields: [userId], references: [id])
-  userId   String?  @unique
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  bio       String?
+  location  String?
+  website   String?
+  avatar    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?  @unique
 }
 
 model Story {
-  id       Int      @id @default(autoincrement())
-  createAt DateTime @default(now())
-  content  String?
-  author   User?    @relation(fields: [authorId], references: [id])
-  authorId String?
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  content   String?
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String?
 }
