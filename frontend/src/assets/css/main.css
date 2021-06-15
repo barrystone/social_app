@@ -337,6 +337,90 @@ textarea:focus {
   margin-bottom: 20px;
 }
 
+.logout {
+  position: absolute;
+  bottom: 0;
+}
+
+.logout__container {
+  cursor: pointer;
+  margin-left: -5px;
+  margin-bottom: 45px;
+}
+
+.logout__container h4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 25px;
+  padding: 8px 10px;
+}
+
+.logout__container h4 img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.logout__container h4 > i {
+  font-size: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: -5px;
+  background-color: #fff;
+}
+
+.logout__container h4:hover {
+  background: #6eaa4d;
+}
+
+.logout__container h4:hover span {
+  color: #fff;
+}
+
+.logout-name {
+  margin: 0 10px 0 20px;
+}
+
+.logout-icon {
+  margin: 0 10px;
+}
+
+.logout__modal-span {
+  cursor: pointer;
+}
+
+.logout__modal-span p {
+  margin: 0;
+  font-size: 16px;
+  border-bottom: 1px solid #000;
+}
+
+.logout__modal-span p:hover {
+  color: #718093;
+}
+
 .landing {
   display: -webkit-box;
   display: -ms-flexbox;

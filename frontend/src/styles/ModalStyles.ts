@@ -27,11 +27,11 @@ export const logoutModelStyle = {
     transform: 'translate(-50%, -50%)',
     background: '#fff',
     borderRadius: '25px',
-    width: '15em',
-
-    minWidth: '5em',
-    minHeight: '2em',
-    maxHeight: '3em'
+    width: '12em',
+    maxWidth: '20rem',
+    minWidth: '4rem',
+    minHeight: '2rem',
+    maxHeight: '3rem'
   },
   overlay: {
     background: '#9e9e9e69'
