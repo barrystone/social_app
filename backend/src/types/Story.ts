@@ -10,7 +10,7 @@ const Story = objectType({
     t.field('author', {
       type: 'User',
       resolve: (parent, _, context: Context) => {
-        return context.prisma.post
+        return context.prisma.story
           .findUnique({
             where: { id: parent.id || undefined },
           })

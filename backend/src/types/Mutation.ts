@@ -77,7 +77,7 @@ const Mutation = objectType({
               },
             },
           },
-        }) as any // Temporary solution for typescript problem
+        })
       },
     })
 
@@ -100,7 +100,7 @@ const Mutation = objectType({
           where: {
             id: Number(id),
           },
-        }) as any // Temporary solution for typescript problem
+        })
       },
     })
 
@@ -117,7 +117,7 @@ const Mutation = objectType({
             content,
             author: { connect: { id: userId } },
           },
-        }) as any // Temporary solution for typescript problem
+        })
       },
     })
 

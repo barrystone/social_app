@@ -24,9 +24,9 @@ const Query = objectType({
       },
     })
 
-    t.field('storys', {
+    t.list.field('allStorys', {
       type: 'Story',
-      resolve: (parent, args, ctx) => {
+      resolve: (_parent, _args, ctx) => {
         return ctx.prisma.story.findMany()
       },
     })

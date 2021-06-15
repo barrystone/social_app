@@ -25,7 +25,7 @@ const User = objectType({
           .findUnique({
             where: { id: parent.id || undefined },
           })
-          .stories() as any // Temporary solution for typescript problem
+          .stories()
       },
     })
     t.field('profile', {
@@ -35,7 +35,7 @@ const User = objectType({
           .findUnique({
             where: { id: parent.id || undefined },
           })
-          .profile() as any // Temporary solution for typescript problem
+          .profile()
       },
     })
   },

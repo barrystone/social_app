@@ -144,13 +144,13 @@ export interface NexusGenFieldTypes {
     website: string | null; // String
   }
   Query: { // field return type
+    allStorys: Array<NexusGenRootTypes['Story'] | null> | null; // [Story]
     allUsers: NexusGenRootTypes['User'][]; // [User!]!
     draftsByUser: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
     feed: NexusGenRootTypes['Post'][]; // [Post!]!
     me: NexusGenRootTypes['User'] | null; // User
     postById: NexusGenRootTypes['Post'] | null; // Post
     story: NexusGenRootTypes['Story'] | null; // Story
-    storys: NexusGenRootTypes['Story'] | null; // Story
   }
   Story: { // field return type
     author: NexusGenRootTypes['User'] | null; // User
@@ -205,13 +205,13 @@ export interface NexusGenFieldTypeNames {
     website: 'String'
   }
   Query: { // field return type name
+    allStorys: 'Story'
     allUsers: 'User'
     draftsByUser: 'Post'
     feed: 'Post'
     me: 'User'
     postById: 'Post'
     story: 'Story'
-    storys: 'Story'
   }
   Story: { // field return type name
     author: 'User'

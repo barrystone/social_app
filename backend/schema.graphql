@@ -56,13 +56,13 @@ type Profile {
 }
 
 type Query {
+  allStorys: [Story]
   allUsers: [User!]!
   draftsByUser(userUniqueInput: UserUniqueInput!): [Post]
   feed(orderBy: PostOrderByUpdatedAtInput, searchString: String, skip: Int, take: Int): [Post!]!
   me: User
   postById(id: Int): Post
   story(id: Int): Story
-  storys: Story
 }
 
 enum SortOrder {
