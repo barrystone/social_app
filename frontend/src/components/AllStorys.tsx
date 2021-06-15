@@ -1,5 +1,6 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
+import { formatDistance, subDays } from 'date-fns';
 
 const ALLSTORYS_QUERRY = gql`
   {
@@ -43,10 +44,18 @@ const Allstorys = () => {
             {story.author.profile && story.author.profile.avatar ? (
               <img src={story.author.profile?.avatar} alt="avatar" />
             ) : (
-              <i className="fa fa-user fa-5x" aria-hidden="true"></i>
+              <span>
+                <i className="fa fa-user fa-5x" aria-hidden="true"></i>
+              </span>
             )}
             <h4 className="allstorys__header-name">{story.author.name}</h4>
-            <p className="allstorys__header-date">{story.createdAt}</p>
+            <p className="allstorys__header-date">
+              {formatDistance(
+                subDays(new Date(story.createdAt), 0),
+                new Date()
+              )}{' '}
+              ago
+            </p>
           </div>
           <div className="allstorys__content">
             <p>{story.content}</p>
