@@ -421,6 +421,62 @@ textarea:focus {
   color: #718093;
 }
 
+.allstorys {
+  border-bottom: 1px solid #718093;
+  margin-top: 10px;
+}
+
+.allstorys__header {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: 0.5fr 0.5fr 1.5fr 7.5fr;
+      grid-template-columns: 0.5fr 0.5fr 1.5fr 7.5fr;
+  margin-left: 10px;
+}
+
+.allstorys__header img,
+.allstorys__header span {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 0.5px solid rgba(0, 0, 0, 0.15);
+}
+
+.allstorys__header span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.allstorys__header span i {
+  font-size: 30px;
+}
+
+.allstorys__header-name {
+  margin: 0;
+  padding: 0 5px 0 15px;
+}
+
+.allstorys__header-date {
+  margin-left: 10px;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.allstorys__content {
+  margin-left: 10px;
+}
+
 .landing {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -744,5 +800,32 @@ textarea:focus {
 .profile__followers p {
   font-size: 20px;
   font-weight: 400;
+}
+
+.home {
+  position: relative;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #718093;
+}
+
+.home__header {
+  border-bottom: 1px solid #718093;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.5fr 0.5fr 12fr;
+      grid-template-columns: 0.5fr 0.5fr 12fr;
+}
+
+.home__header-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 0;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  width: 90%;
+  padding: 10px;
 }
 /*# sourceMappingURL=main.css.map */
