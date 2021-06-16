@@ -8,13 +8,14 @@ datasource db {
 }
 
 model User {
-  id       String   @id @default(uuid())
-  email    String   @unique
-  password String
-  name     String?
-  posts    Post[]
-  profile  Profile?
-  stories  Story[]
+  id           String       @id @default(uuid())
+  email        String       @unique
+  password     String
+  name         String?
+  posts        Post[]
+  profile      Profile?
+  stories      Story[]
+  likedStories LikedStory[]
 }
 
 model Post {
@@ -41,9 +42,19 @@ model Profile {
 }
 
 model Story {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
+  id        Int          @id @default(autoincrement())
+  createdAt DateTime     @default(now())
   content   String?
-  author    User?    @relation(fields: [authorId], references: [id])
+  author    User?        @relation(fields: [authorId], references: [id])
   authorId  String?
+  likes     LikedStory[]
+}
+
+model LikedStory {
+  id      Int      @id @default(autoincrement())
+  likedAt DateTime @default(now())
+  user    User?    @relation(fields: [userId], references: [id])
+  userId  String?
+  story   Story    @relation(fields: [storyId], references: [id])
+  storyId Int
 }
