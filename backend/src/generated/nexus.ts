@@ -65,6 +65,10 @@ export interface NexusGenObjects {
     token?: string | null; // String
     user?: NexusGenRootTypes['User'] | null; // User
   }
+  LikedStory: { // root type
+    id: number; // Int!
+    likedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
   Mutation: {};
   Post: { // root type
     content?: string | null; // String
@@ -112,6 +116,12 @@ export interface NexusGenFieldTypes {
     token: string | null; // String
     user: NexusGenRootTypes['User'] | null; // User
   }
+  LikedStory: { // field return type
+    id: number; // Int!
+    likedAt: NexusGenScalars['DateTime']; // DateTime!
+    story: NexusGenRootTypes['Story'] | null; // Story
+    user: NexusGenRootTypes['User'] | null; // User
+  }
   Mutation: { // field return type
     createDraft: NexusGenRootTypes['Post'] | null; // Post
     createProfile: NexusGenRootTypes['Profile'] | null; // Profile
@@ -157,10 +167,12 @@ export interface NexusGenFieldTypes {
     content: string | null; // String
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     id: number; // Int!
+    likes: Array<NexusGenRootTypes['LikedStory'] | null> | null; // [LikedStory]
   }
   User: { // field return type
     email: string; // String!
     id: string; // String!
+    likedStories: Array<NexusGenRootTypes['LikedStory'] | null> | null; // [LikedStory]
     name: string | null; // String
     posts: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
     profile: NexusGenRootTypes['Profile'] | null; // Profile
@@ -171,6 +183,12 @@ export interface NexusGenFieldTypes {
 export interface NexusGenFieldTypeNames {
   AuthPayload: { // field return type name
     token: 'String'
+    user: 'User'
+  }
+  LikedStory: { // field return type name
+    id: 'Int'
+    likedAt: 'DateTime'
+    story: 'Story'
     user: 'User'
   }
   Mutation: { // field return type name
@@ -218,10 +236,12 @@ export interface NexusGenFieldTypeNames {
     content: 'String'
     createdAt: 'DateTime'
     id: 'Int'
+    likes: 'LikedStory'
   }
   User: { // field return type name
     email: 'String'
     id: 'String'
+    likedStories: 'LikedStory'
     name: 'String'
     posts: 'Post'
     profile: 'Profile'

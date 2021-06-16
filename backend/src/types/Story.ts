@@ -17,6 +17,14 @@ const Story = objectType({
           .author()
       },
     })
+    t.list.field('likes', {
+      type: 'LikedStory',
+      resolve: (parent, args, ctx) => {
+        return ctx.prisma.story
+          .findUnique({ where: { id: parent.id } || undefined })
+          .likes()
+      },
+    })
   },
 })
 

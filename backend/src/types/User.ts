@@ -18,6 +18,16 @@ const User = objectType({
           .posts()
       },
     })
+    t.field('profile', {
+      type: 'Profile',
+      resolve: (parent, _, context: Context) => {
+        return context.prisma.user
+          .findUnique({
+            where: { id: parent.id || undefined },
+          })
+          .profile()
+      },
+    })
     t.list.field('stories', {
       type: 'Story',
       resolve: (parent, _, context: Context) => {
@@ -28,14 +38,14 @@ const User = objectType({
           .stories()
       },
     })
-    t.field('profile', {
-      type: 'Profile',
+    t.list.field('likedStories', {
+      type: 'LikedStory',
       resolve: (parent, _, context: Context) => {
         return context.prisma.user
           .findUnique({
             where: { id: parent.id || undefined },
           })
-          .profile()
+          .likedStories()
       },
     })
   },

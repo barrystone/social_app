@@ -15,6 +15,7 @@ import User from './types/User'
 import Post from './types/Post'
 import Story from './types/Story'
 import Profile from './types/Profile'
+import LikedStory from './types/LikedStory'
 
 export const DateTime = asNexusMethod(DateTimeResolver, 'date')
 
@@ -69,8 +70,9 @@ const schemaWithoutPermissions = makeSchema({
     Mutation,
     User,
     Post,
-    Story,
     Profile,
+    Story,
+    LikedStory,
     AuthPayload,
     UserUniqueInput,
     UserCreateInput,
