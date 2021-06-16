@@ -813,8 +813,6 @@ textarea:focus {
   border-bottom: 1px solid #718093;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.5fr 0.5fr 12fr;
-      grid-template-columns: 0.5fr 0.5fr 12fr;
 }
 
 .home__header-title {

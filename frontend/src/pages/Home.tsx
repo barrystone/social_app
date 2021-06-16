@@ -2,6 +2,7 @@ import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import LeftNav from '../components/LeftNav';
 import AllStorys from '../components/AllStorys';
+import Storying from '../components/Storying';
 
 export const ME_QUERY = gql`
   {
@@ -34,7 +35,7 @@ const Home = () => {
           <div className="home">
             <div className="home__header">
               <h3 className="home__header-title">Home</h3>
-              <h1>Storys</h1>
+              <Storying />
               <AllStorys />
             </div>
           </div>

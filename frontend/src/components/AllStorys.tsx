@@ -2,7 +2,7 @@ import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { formatDistance, subDays } from 'date-fns';
 
-const ALLSTORYS_QUERRY = gql`
+export const ALLSTORYS_QUERRY = gql`
   {
     allStorys {
       id

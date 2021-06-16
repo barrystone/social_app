@@ -3,10 +3,10 @@ import { gql, useMutation } from '@apollo/client';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Modal from 'react-modal';
-import { ME_QUERY } from '../pages/Profile';
 import { customModalStyles } from '../styles/ModalStyles';
+import { ALLSTORYS_QUERRY } from './AllStorys';
 
-const CREATE_STORT_MUTATION = gql`
+const CREATE_STORY_MUTATION = gql`
   mutation createStory($content: String) {
     createStory(content: $content) {
       id
@@ -19,8 +19,8 @@ interface StoryValues {
 }
 
 const Story = () => {
-  const [createStory] = useMutation(CREATE_STORT_MUTATION, {
-    refetchQueries: [{ query: ME_QUERY }]
+  const [createStory] = useMutation(CREATE_STORY_MUTATION, {
+    refetchQueries: [{ query: ALLSTORYS_QUERRY }]
   });
 
   const [modalIsOpen, setModalIsOpen] = useState(false);

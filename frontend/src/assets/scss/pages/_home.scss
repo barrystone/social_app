@@ -6,7 +6,7 @@
   &__header {
     border-bottom: 1px solid $color-gray;
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr 12fr;
+    // grid-template-rows: 0.5fr 0.5fr 12fr;
     &-title {
       font-weight: bold;
       font-size: 20px;
