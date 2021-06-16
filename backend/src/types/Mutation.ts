@@ -111,11 +111,28 @@ const Mutation = objectType({
       },
       resolve: (_, { content }, ctx) => {
         const userId = getUserId(ctx)
-        if (!userId) throw new Error('Could not authenticate user.')
+        if (!userId) throw new Error('Could not authenticate user!')
         return ctx.prisma.story.create({
           data: {
             content,
             author: { connect: { id: userId } },
+          },
+        })
+      },
+    })
+
+    t.field('likeStory', {
+      type: 'LikedStory',
+      args: {
+        id: intArg(),
+      },
+      resolve: (parent, { id: likedStoryId }, ctx) => {
+        const userId = getUserId(ctx)
+        if (!userId) throw Error('Could not authenticate user!')
+        return ctx.prisma.likedStory.create({
+          data: {
+            story: { connect: { id: Number(likedStoryId) } },
+            user: { connect: { id: userId } },
           },
         })
       },

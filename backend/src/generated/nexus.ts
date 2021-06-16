@@ -128,6 +128,7 @@ export interface NexusGenFieldTypes {
     createStory: NexusGenRootTypes['Story'] | null; // Story
     deletePost: NexusGenRootTypes['Post'] | null; // Post
     incrementPostViewCount: NexusGenRootTypes['Post'] | null; // Post
+    likeStory: NexusGenRootTypes['LikedStory'] | null; // LikedStory
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     signup: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     togglePublishPost: NexusGenRootTypes['Post'] | null; // Post
@@ -197,6 +198,7 @@ export interface NexusGenFieldTypeNames {
     createStory: 'Story'
     deletePost: 'Post'
     incrementPostViewCount: 'Post'
+    likeStory: 'LikedStory'
     login: 'AuthPayload'
     signup: 'AuthPayload'
     togglePublishPost: 'Post'
@@ -269,6 +271,9 @@ export interface NexusGenArgTypes {
     }
     incrementPostViewCount: { // args
       id: number; // Int!
+    }
+    likeStory: { // args
+      id?: number | null; // Int
     }
     login: { // args
       email: string; // String!

@@ -25,6 +25,7 @@ type Mutation {
   createStory(content: String): Story
   deletePost(id: Int!): Post
   incrementPostViewCount(id: Int!): Post
+  likeStory(id: Int): LikedStory
   login(email: String!, password: String!): AuthPayload
   signup(email: String!, name: String, password: String!): AuthPayload
   togglePublishPost(id: Int!): Post
