@@ -3,6 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 import { formatDistance, subDays } from 'date-fns';
 import { ME_QUERY } from '../pages/Profile';
 import LikeStory from './LikeStory';
+import UnLikeStory from './UnLikeStory';
 
 export const ALLSTORYS_QUERRY = gql`
   {
@@ -50,13 +51,17 @@ const Allstorys = () => {
       };
     };
   }
-
   interface likedStory {
     id: number;
     story: {
       id: number;
     };
   }
+
+  const findLikedStory = (storyId: number) =>
+    meData.me.likedStories.filter(
+      (likedStory: likedStory) => likedStory.story.id === storyId
+    )[0];
 
   return (
     <div className="allstorys">
@@ -84,12 +89,10 @@ const Allstorys = () => {
               <p>{story.content}</p>
             </div>
             <div className="allstorys-item__content-likes">
-              {meData.me.likedStories.filter(
-                (likedStory: likedStory) => likedStory.story.id === story.id
-              )[0] ? (
+              {findLikedStory(story.id) ? (
                 <>
                   <span>
-                    <i className="fas fa-thumbs-up" />
+                    <UnLikeStory id={findLikedStory(story.id).id} />
                   </span>
                   {story.likes.length}
                 </>
