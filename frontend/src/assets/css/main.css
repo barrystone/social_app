@@ -473,6 +473,35 @@ textarea:focus {
   font-size: 12px;
 }
 
+.allstorys-item__content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+}
+
+.allstorys-item__content-words {
+  padding: 10px 0;
+}
+
+.allstorys-item__content-words p {
+  padding-left: 40px;
+  font-size: 18px;
+}
+
+.allstorys-item__content-likes {
+  padding: 0px 0 5px 5px;
+}
+
+.allstorys-item__content-likes > span {
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.allstorys-item__content-likes > span i {
+  font-size: 20px;
+}
+
 .landing {
   display: -webkit-box;
   display: -ms-flexbox;
