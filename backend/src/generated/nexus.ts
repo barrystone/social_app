@@ -132,6 +132,7 @@ export interface NexusGenFieldTypes {
     login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     signup: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
     togglePublishPost: NexusGenRootTypes['Post'] | null; // Post
+    unLikeStory: NexusGenRootTypes['LikedStory'] | null; // LikedStory
     updateProfile: NexusGenRootTypes['Profile'] | null; // Profile
   }
   Post: { // field return type
@@ -202,6 +203,7 @@ export interface NexusGenFieldTypeNames {
     login: 'AuthPayload'
     signup: 'AuthPayload'
     togglePublishPost: 'Post'
+    unLikeStory: 'LikedStory'
     updateProfile: 'Profile'
   }
   Post: { // field return type name
@@ -286,6 +288,9 @@ export interface NexusGenArgTypes {
     }
     togglePublishPost: { // args
       id: number; // Int!
+    }
+    unLikeStory: { // args
+      id?: number | null; // Int
     }
     updateProfile: { // args
       avatar?: string | null; // String

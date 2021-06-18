@@ -1,7 +1,7 @@
 import { APP_SECRET, getUserId } from '../utils'
 import { compare, hash } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
-import { intArg, nonNull, objectType, stringArg, arg } from 'nexus'
+import { intArg, nonNull, objectType, stringArg, arg, nullable } from 'nexus'
 import { Context } from '../context'
 
 const Mutation = objectType({
@@ -126,14 +126,28 @@ const Mutation = objectType({
       args: {
         id: intArg(),
       },
-      resolve: (parent, { id: likedStoryId }, ctx) => {
+      resolve: (parent, { id: storyId }, ctx) => {
         const userId = getUserId(ctx)
         if (!userId) throw Error('Could not authenticate user!')
         return ctx.prisma.likedStory.create({
           data: {
-            story: { connect: { id: Number(likedStoryId) } },
+            story: { connect: { id: Number(storyId) } },
             user: { connect: { id: userId } },
           },
+        })
+      },
+    })
+
+    t.field('unLikeStory', {
+      type: 'LikedStory',
+      args: {
+        id: intArg(),
+      },
+      resolve: (parent, { id: likedStoryId }, ctx) => {
+        const userId = getUserId(ctx)
+        if (!userId) throw Error('Could not authenticate user!')
+        return ctx.prisma.likedStory.delete({
+          where: { id: Number(likedStoryId) },
         })
       },
     })
