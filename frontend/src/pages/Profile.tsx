@@ -18,6 +18,12 @@ export const ME_QUERY = gql`
         website
         avatar
       }
+      likedStories {
+        id
+        story {
+          id
+        }
+      }
     }
   }
 `;
