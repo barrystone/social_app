@@ -1,6 +1,7 @@
 import React from 'react';
 import { gql, useMutation } from '@apollo/client';
 import { ALLSTORYS_QUERRY } from './AllStorys';
+import { ME_QUERY } from '../pages/Profile';
 
 const LIKE_STORY_MUTATION = gql`
   mutation likeStory($id: Int) {
@@ -16,7 +17,7 @@ interface Props {
 
 const LikeStory = ({ id }: Props) => {
   const [likeStory] = useMutation(LIKE_STORY_MUTATION, {
-    refetchQueries: [{ query: ALLSTORYS_QUERRY }]
+    refetchQueries: [{ query: ALLSTORYS_QUERRY }, { query: ME_QUERY }]
   });
 
   const handleAddLike = async () => {

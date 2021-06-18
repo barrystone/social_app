@@ -33,9 +33,34 @@ const authLink = setContext(async (req, { headers }) => {
 });
 
 const link = authLink.concat(httpLink as any);
+
+// solve `Cache data may be lost when replacing` warning
+const cache = new InMemoryCache({
+  typePolicies: {
+    Story: {
+      fields: {
+        likes: {
+          merge(existing, incoming) {
+            return incoming;
+          }
+        }
+      }
+    },
+    User: {
+      fields: {
+        likedStories: {
+          merge(existing, incoming) {
+            return incoming;
+          }
+        }
+      }
+    }
+  }
+});
+
 const client = new ApolloClient({
   link: link as any,
-  cache: new InMemoryCache()
+  cache
 });
 
 function App() {
