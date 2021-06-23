@@ -88,7 +88,7 @@ enum SortOrder {
 
 type Story {
   author: User
-  comment: [Comment]
+  comments: [Comment]
   content: String
   createdAt: DateTime!
   id: Int!
@@ -96,7 +96,7 @@ type Story {
 }
 
 type User {
-  comment: [Comment]
+  comments: [Comment]
   email: String!
   id: String!
   likedStories: [LikedStory]

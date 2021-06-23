@@ -25,7 +25,7 @@ const Story = objectType({
           .likes()
       },
     })
-    t.list.field('comment', {
+    t.list.field('comments', {
       type: 'Comment',
       resolve: (parent, args, ctx) => {
         return ctx.prisma.story

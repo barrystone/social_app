@@ -48,7 +48,7 @@ const User = objectType({
           .likedStories()
       },
     })
-    t.list.field('comment', {
+    t.list.field('comments', {
       type: 'Comment',
       resolve: (parent, args, ctx) => {
         return ctx.prisma.user

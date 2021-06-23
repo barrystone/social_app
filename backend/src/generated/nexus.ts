@@ -177,14 +177,14 @@ export interface NexusGenFieldTypes {
   }
   Story: { // field return type
     author: NexusGenRootTypes['User'] | null; // User
-    comment: Array<NexusGenRootTypes['Comment'] | null> | null; // [Comment]
+    comments: Array<NexusGenRootTypes['Comment'] | null> | null; // [Comment]
     content: string | null; // String
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     id: number; // Int!
     likes: Array<NexusGenRootTypes['LikedStory'] | null> | null; // [LikedStory]
   }
   User: { // field return type
-    comment: Array<NexusGenRootTypes['Comment'] | null> | null; // [Comment]
+    comments: Array<NexusGenRootTypes['Comment'] | null> | null; // [Comment]
     email: string; // String!
     id: string; // String!
     likedStories: Array<NexusGenRootTypes['LikedStory'] | null> | null; // [LikedStory]
@@ -256,14 +256,14 @@ export interface NexusGenFieldTypeNames {
   }
   Story: { // field return type name
     author: 'User'
-    comment: 'Comment'
+    comments: 'Comment'
     content: 'String'
     createdAt: 'DateTime'
     id: 'Int'
     likes: 'LikedStory'
   }
   User: { // field return type name
-    comment: 'Comment'
+    comments: 'Comment'
     email: 'String'
     id: 'String'
     likedStories: 'LikedStory'

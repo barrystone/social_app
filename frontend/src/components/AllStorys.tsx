@@ -4,6 +4,7 @@ import { formatDistance, subDays } from 'date-fns';
 import { ME_QUERY } from '../pages/Profile';
 import LikeStory from './LikeStory';
 import UnLikeStory from './UnLikeStory';
+import CreateComment from './CreateComment';
 
 export const ALLSTORYS_QUERRY = gql`
   {
@@ -21,6 +22,9 @@ export const ALLSTORYS_QUERRY = gql`
           id
           avatar
         }
+      }
+      comments {
+        id
       }
     }
   }
@@ -44,12 +48,14 @@ const Allstorys = () => {
     createdAt: Date;
     content: string;
     likes: [];
+
     author: {
       name: string;
       profile: {
         avatar: string;
       };
     };
+    comments: [];
   }
   interface likedStory {
     id: number;
@@ -105,6 +111,17 @@ const Allstorys = () => {
                 </>
               )}
             </div>
+            <span style={{ marginLeft: '50px', marginBottom: '10px' }}>
+              <CreateComment
+                id={story.id}
+                name={story.author.name}
+                story={story.content}
+                avatar={story.author.profile.avatar}
+              />
+            </span>
+            {story.comments.length > 0
+              ? story.comments.length + ' coments'
+              : null}
           </div>
         </div>
       ))}
