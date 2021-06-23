@@ -18,6 +18,7 @@ import Login from './pages/Login';
 import IsAuthenticated from './components/IsAuthenticated';
 import Profile from './pages/Profile';
 import Home from './pages/Home';
+import SingleStory from './pages/SingleStory';
 
 // do this instead of easy apollo client, reason is in necessary for set up header
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' });
@@ -90,6 +91,9 @@ function App() {
               </Route>
               <Route path="/users">
                 <Users />
+              </Route>
+              <Route path="/story/:id">
+                <SingleStory />
               </Route>
             </IsAuthenticated>
           </Switch>

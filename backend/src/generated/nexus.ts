@@ -125,6 +125,7 @@ export interface NexusGenFieldTypes {
     content: string | null; // String
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     id: number; // Int!
+    user: NexusGenRootTypes['User'] | null; // User
   }
   LikedStory: { // field return type
     id: number; // Int!
@@ -204,6 +205,7 @@ export interface NexusGenFieldTypeNames {
     content: 'String'
     createdAt: 'DateTime'
     id: 'Int'
+    user: 'User'
   }
   LikedStory: { // field return type name
     id: 'Int'

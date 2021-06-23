@@ -6,6 +6,8 @@ import LikeStory from './LikeStory';
 import UnLikeStory from './UnLikeStory';
 import CreateComment from './CreateComment';
 
+import { Link } from 'react-router-dom';
+
 export const ALLSTORYS_QUERRY = gql`
   {
     allStorys {
@@ -73,25 +75,42 @@ const Allstorys = () => {
     <div className="allstorys">
       {data.allStorys.map((story: allStorys, idx: number) => (
         <div className="allstorys-item" key={idx}>
-          <div className="allstorys-item__header">
-            {story.author.profile && story.author.profile.avatar ? (
-              <img src={story.author.profile?.avatar} alt="avatar" />
-            ) : (
-              <span>
-                <i className="fa fa-user fa-5x" aria-hidden="true"></i>
-              </span>
-            )}
-            <h4 className="allstorys-item__header-name">{story.author.name}</h4>
-            <p className="allstorys-item__header-date">
-              {formatDistance(
-                subDays(new Date(story.createdAt), 0),
-                new Date()
-              )}{' '}
-              ago
-            </p>
-          </div>
+          <Link
+            to={`/story/${story.id}`}
+            style={{ textDecoration: 'none', color: 'black' }}
+          >
+            <div className="allstorys-item__header">
+              {story.author.profile && story.author.profile.avatar ? (
+                <img src={story.author.profile?.avatar} alt="avatar" />
+              ) : (
+                <span>
+                  <i className="fa fa-user fa-5x" aria-hidden="true"></i>
+                </span>
+              )}
+              <h4 className="allstorys-item__header-name">
+                {story.author.name}
+              </h4>
+              <p className="allstorys-item__header-date">
+                {formatDistance(
+                  subDays(new Date(story.createdAt), 0),
+                  new Date()
+                )}{' '}
+                ago
+              </p>
+            </div>
+            <div
+              className="allstorys-item__content-words"
+              style={{ position: 'absolute' }}
+            >
+              <p>{story.content}</p>
+            </div>
+          </Link>
+
           <div className="allstorys-item__content">
-            <div className="allstorys-item__content-words">
+            <div
+              className="allstorys-item__content-words"
+              style={{ visibility: 'hidden' }}
+            >
               <p>{story.content}</p>
             </div>
             <div className="allstorys-item__content-likes">

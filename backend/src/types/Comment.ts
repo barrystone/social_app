@@ -7,6 +7,16 @@ const Comment = objectType({
     t.nonNull.int('id')
     t.nonNull.field('createdAt', { type: 'DateTime' })
     t.string('content')
+    t.field('user', {
+      type: 'User',
+      resolve: (parent, _, context: Context) => {
+        return context.prisma.comment
+          .findUnique({
+            where: { id: parent.id || undefined },
+          })
+          .User()
+      },
+    })
   },
 })
 
