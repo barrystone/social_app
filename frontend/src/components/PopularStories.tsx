@@ -52,7 +52,7 @@ const PopularStories = () => {
 
   return (
     <div className="popular-stories">
-      <h3 className="trending">Trending</h3>
+      <h2 className="trending">Trending</h2>
       {getPopularTweets.map((story: story) => (
         <div className="popular-story-container" key={story.id}>
           <div className="date-title">
@@ -60,7 +60,7 @@ const PopularStories = () => {
               {story.author.profile && story.author.profile.avatar ? (
                 <img
                   src={story.author.profile.avatar}
-                  style={{ width: '40px', borderRadius: '50%' }}
+                  style={{ width: '40px', borderRadius: '50%', margin: '10px' }}
                   alt="avatar"
                 />
               ) : (
@@ -68,11 +68,13 @@ const PopularStories = () => {
                   <i
                     className="fa fa-user fa-5x"
                     aria-hidden="true"
-                    style={{ fontSize: '35px' }}
+                    style={{ fontSize: '35px', margin: '10px' }}
                   ></i>
                 </span>
               )}
-              <p className="story-content">{story.content}</p>
+              <p className="story-content" style={{ margin: '20px' }}>
+                {story.content}
+              </p>
             </div>
             <p className="date">
               {/* problem bellow createAt should be createdAt */}

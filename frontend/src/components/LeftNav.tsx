@@ -22,24 +22,25 @@ const LeftNav = () => {
           <span className="title">Profile</span>
         </h2>
       </Link>
-      <Link to="/users">
+      <a href="http://localhost:8080/">
         <h2>
           <i className="fa fa-envelope" aria-hidden="true" />{' '}
-          <span className="title">Messages</span>
+          <span className="title">ChatRoom</span>
         </h2>
-      </Link>
-      <Link to="/users">
+      </a>
+
+      {/* <Link to="/users">
         <h2>
           <i className="fa fa-bell" aria-hidden="true" />{' '}
           <span className="title">Notifications</span>
         </h2>
-      </Link>
-      <Link to="/users">
+      </Link> */}
+      {/* <Link to="/users">
         <h2>
           <i className="fa fa-ellipsis-h" aria-hidden="true" />{' '}
           <span className="title">More</span>
         </h2>
-      </Link>
+      </Link> */}
       <Story />
       <Logout />
     </div>
