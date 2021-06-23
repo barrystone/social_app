@@ -5,6 +5,7 @@ import UpdateProfile from '../components/UpdateProfile';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import LeftNav from '../components/LeftNav';
+import PopularStories from '../components/PopularStories';
 
 export const ME_QUERY = gql`
   {
@@ -95,7 +96,9 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="right">right nav</div>
+        <div className="right">
+          <PopularStories />
+        </div>
       </div>
     </>
   );

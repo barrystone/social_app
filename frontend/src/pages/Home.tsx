@@ -3,6 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 import LeftNav from '../components/LeftNav';
 import AllStorys from '../components/AllStorys';
 import Storying from '../components/Storying';
+import PopularStories from '../components/PopularStories';
 
 export const ME_QUERY = gql`
   {
@@ -40,7 +41,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="right">right nav</div>
+        <div className="right">
+          <PopularStories />
+        </div>
       </div>
     </>
   );
