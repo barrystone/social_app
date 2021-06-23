@@ -152,6 +152,25 @@ const Mutation = objectType({
       },
     })
 
+    t.field('createComment', {
+      type: 'Comment',
+      args: {
+        content: stringArg(),
+        id: intArg(),
+      },
+      resolve: (parent, { content, id: commentId }, ctx) => {
+        const userId = getUserId(ctx)
+        if (!userId) throw Error('Could not authenticate user!')
+        return ctx.prisma.comment.create({
+          data: {
+            content,
+            User: { connect: { id: userId } },
+            Story: { connect: { id: Number(commentId) } },
+          },
+        })
+      },
+    })
+
     t.field('createDraft', {
       type: 'Post',
       args: {

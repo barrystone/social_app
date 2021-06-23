@@ -65,6 +65,11 @@ export interface NexusGenObjects {
     token?: string | null; // String
     user?: NexusGenRootTypes['User'] | null; // User
   }
+  Comment: { // root type
+    content?: string | null; // String
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: number; // Int!
+  }
   LikedStory: { // root type
     id: number; // Int!
     likedAt: NexusGenScalars['DateTime']; // DateTime!
@@ -116,6 +121,11 @@ export interface NexusGenFieldTypes {
     token: string | null; // String
     user: NexusGenRootTypes['User'] | null; // User
   }
+  Comment: { // field return type
+    content: string | null; // String
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: number; // Int!
+  }
   LikedStory: { // field return type
     id: number; // Int!
     likedAt: NexusGenScalars['DateTime']; // DateTime!
@@ -123,6 +133,7 @@ export interface NexusGenFieldTypes {
     user: NexusGenRootTypes['User'] | null; // User
   }
   Mutation: { // field return type
+    createComment: NexusGenRootTypes['Comment'] | null; // Comment
     createDraft: NexusGenRootTypes['Post'] | null; // Post
     createProfile: NexusGenRootTypes['Profile'] | null; // Profile
     createStory: NexusGenRootTypes['Story'] | null; // Story
@@ -166,12 +177,14 @@ export interface NexusGenFieldTypes {
   }
   Story: { // field return type
     author: NexusGenRootTypes['User'] | null; // User
+    comment: Array<NexusGenRootTypes['Comment'] | null> | null; // [Comment]
     content: string | null; // String
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     id: number; // Int!
     likes: Array<NexusGenRootTypes['LikedStory'] | null> | null; // [LikedStory]
   }
   User: { // field return type
+    comment: Array<NexusGenRootTypes['Comment'] | null> | null; // [Comment]
     email: string; // String!
     id: string; // String!
     likedStories: Array<NexusGenRootTypes['LikedStory'] | null> | null; // [LikedStory]
@@ -187,6 +200,11 @@ export interface NexusGenFieldTypeNames {
     token: 'String'
     user: 'User'
   }
+  Comment: { // field return type name
+    content: 'String'
+    createdAt: 'DateTime'
+    id: 'Int'
+  }
   LikedStory: { // field return type name
     id: 'Int'
     likedAt: 'DateTime'
@@ -194,6 +212,7 @@ export interface NexusGenFieldTypeNames {
     user: 'User'
   }
   Mutation: { // field return type name
+    createComment: 'Comment'
     createDraft: 'Post'
     createProfile: 'Profile'
     createStory: 'Story'
@@ -237,12 +256,14 @@ export interface NexusGenFieldTypeNames {
   }
   Story: { // field return type name
     author: 'User'
+    comment: 'Comment'
     content: 'String'
     createdAt: 'DateTime'
     id: 'Int'
     likes: 'LikedStory'
   }
   User: { // field return type name
+    comment: 'Comment'
     email: 'String'
     id: 'String'
     likedStories: 'LikedStory'
@@ -255,6 +276,10 @@ export interface NexusGenFieldTypeNames {
 
 export interface NexusGenArgTypes {
   Mutation: {
+    createComment: { // args
+      content?: string | null; // String
+      id?: number | null; // Int
+    }
     createDraft: { // args
       data: NexusGenInputs['PostCreateInput']; // PostCreateInput!
     }

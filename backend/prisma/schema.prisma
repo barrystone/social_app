@@ -16,6 +16,7 @@ model User {
   profile      Profile?
   stories      Story[]
   likedStories LikedStory[]
+  comments     Comment[]
 }
 
 model Post {
@@ -48,6 +49,7 @@ model Story {
   author    User?        @relation(fields: [authorId], references: [id])
   authorId  String?
   likes     LikedStory[]
+  comments  Comment[]
 }
 
 model LikedStory {
@@ -57,4 +59,14 @@ model LikedStory {
   userId  String?
   story   Story    @relation(fields: [storyId], references: [id])
   storyId Int
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  content   String?
+  Story     Story?   @relation(fields: [storyId], references: [id])
+  storyId   Int?
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
 }

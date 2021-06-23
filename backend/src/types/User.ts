@@ -48,6 +48,14 @@ const User = objectType({
           .likedStories()
       },
     })
+    t.list.field('comment', {
+      type: 'Comment',
+      resolve: (parent, args, ctx) => {
+        return ctx.prisma.user
+          .findUnique({ where: { id: parent.id } || undefined })
+          .comments()
+      },
+    })
   },
 })
 
