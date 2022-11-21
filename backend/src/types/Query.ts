@@ -27,7 +27,13 @@ const Query = objectType({
     t.list.field('allStorys', {
       type: 'Story',
       resolve: (_parent, _args, ctx) => {
-        return ctx.prisma.story.findMany()
+        return ctx.prisma.story.findMany({
+          orderBy: [
+            {
+              id: 'desc',
+            },
+          ],
+        })
       },
     })
 
